@@ -20,8 +20,9 @@ const Product_provider = ({children}) => {
     },[])
     const value = {
         state,
-        dispatch
+        dispatch,
     }
+  
 
     return (
       <PRODUCT_CONTEXT.Provider value={value}>

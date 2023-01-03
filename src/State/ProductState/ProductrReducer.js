@@ -4,6 +4,8 @@ export const initialState = {
  loading:false,
  products:[],
  error:false,
+ cart:[]
+
 
 }
 export const productReducer=(state,action)=>{
@@ -26,6 +28,23 @@ export const productReducer=(state,action)=>{
               ...state,
               loading: true,
               error: true,
+          }
+      case actionTypes.ADD_CARD:
+          return {
+              ...state,
+            cart:[...state.cart,action.payload]
+          }
+      case actionTypes.REMOVE_CARD:
+          return {
+            ...state,
+           
+            // cart: [...state.cart.filter((_, index) => index.price != action.index)]
+            cart: state.cart.filter(
+              cart =>
+                cart.price !== action.payload
+            )
+             
+          
           }
    
     
